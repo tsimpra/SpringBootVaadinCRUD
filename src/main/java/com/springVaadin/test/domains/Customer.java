@@ -1,7 +1,7 @@
 package com.springVaadin.test.domains;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @Entity
 @Table(name="CUSTOMER")
@@ -9,7 +9,7 @@ public class Customer {
     @Id
     @Column(name="ID",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigDecimal id;
+    private BigInteger id;
     @Column(name = "FIRST_NAME")
     private String firstName;
     @Column(name = "LAST_NAME")
@@ -18,7 +18,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(BigDecimal id, String firstName, String lastName) {
+    public Customer(BigInteger id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,11 +29,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public BigDecimal getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
