@@ -44,4 +44,8 @@ public class CustomerService {
         }
         return false;
     }
+
+    public List<Customer> getCustomerByLastNameWithIgnoreCase(String textFilter) {
+        return Optional.of(customerRepository.findByLastNameStartsWithIgnoreCase(textFilter)).orElse(new ArrayList<>());
+    }
 }
