@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @SpringBootApplication
 public class TestApplication {
@@ -41,7 +42,7 @@ public class TestApplication {
 			log.info("");
 
 			// fetch an individual customer by ID
-			Customer customer = repository.findById(BigDecimal.valueOf(1)).get();
+			Customer customer = repository.findById(BigInteger.valueOf(1)).get();
 			log.info("Customer found with findOne(1L):");
 			log.info("--------------------------------");
 			log.info(customer.toString());

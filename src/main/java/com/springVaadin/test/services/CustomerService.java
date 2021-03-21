@@ -4,8 +4,7 @@ import com.springVaadin.test.domains.Customer;
 import com.springVaadin.test.repos.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +18,7 @@ public class CustomerService {
         return Optional.of(customerRepository.findAll()).orElse(new ArrayList<Customer>());
     }
 
-    public Customer getCustomerById(BigDecimal id){
+    public Customer getCustomerById(BigInteger id){
         return customerRepository.findById(id).orElse(null);
     }
 
@@ -44,5 +43,9 @@ public class CustomerService {
             return true;
         }
         return false;
+    }
+
+    public List<Customer> getCustomerByLastNameWithIgnoreCase(String textFilter) {
+        return Optional.of(customerRepository.findByLastNameStartsWithIgnoreCase(textFilter)).orElse(new ArrayList<>());
     }
 }
